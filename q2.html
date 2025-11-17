@@ -1,0 +1,145 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Vertical Box (Box Model)</title>
+<style>
+  :root{
+    --page-bg: #f3f5f9;
+    --outer-start: #cfc9ff;
+    --outer-end: #b5a8ff;
+    --inner-bg: #f5f2ee;
+    --text-dark: #1b1b2f;
+  }
+
+  html,body{
+    height:100%;
+    margin:0;
+    background:var(--page-bg);
+    font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    padding:40px 20px;
+    box-sizing:border-box;
+  }
+
+  /* Outer rounded box (gradient) */
+  .product-box{
+    width:90%;
+    max-width:920px;
+    height:460px;
+    position:relative;
+    background: linear-gradient(180deg, var(--outer-start), var(--outer-end));
+    border-radius:28px;
+    padding-top:48px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    overflow:visible; /* allow pseudo elements outside */
+    box-shadow: 0 8px 30px rgba(15,20,40,0.08);
+  }
+
+  /* create the "vertical legs" (cutouts) using pseudo-elements */
+  .product-box::before,
+  .product-box::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    width:90px;               /* width of each leg */
+    height:160px;             /* height of each leg */
+    background: var(--page-bg); /* same as page so it looks cut out */
+    border-radius:6px 6px 0 0; /* round top of cutout */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.02) inset;
+  }
+
+  /* left & right placement */
+  .product-box::before{ left:54px; }
+  .product-box::after{ right:54px; }
+
+  /* big heading text inside outer box */
+  .title{
+    margin:0;
+    margin-top:10px;
+    font-size:40px;
+    font-weight:700;
+    color:#16205a;
+    letter-spacing:0.6px;
+    text-align:center;
+    transform:translateY(6px);
+  }
+
+  /* pale inner card that sits centered and overlaps the legs */
+  .inner-card{
+    width:64%;
+    max-width:560px;
+    background: var(--inner-bg);
+    margin-top:36px;
+    padding:34px 22px;
+    border-radius:10px;
+    box-shadow: 0 6px 20px rgba(10,20,40,0.06);
+    text-align:center;
+    box-sizing:border-box;
+  }
+
+  .inner-card h3{
+    margin:0 0 8px 0;
+    color:#7b7b86;
+    font-weight:600;
+    font-size:20px;
+  }
+
+  .big-num{
+    font-size:72px;
+    margin:10px 0 0 0;
+    font-weight:800;
+    color:var(--text-dark);
+    letter-spacing:1px;
+  }
+
+  /* responsive adjustments */
+  @media (max-width:820px){
+    .product-box{ height:520px; }
+    .product-box::before,.product-box::after{
+      width:70px; height:160px;
+      left:32px; right:32px;
+    }
+    .inner-card{ width:78%; padding:28px; }
+    .title { font-size:32px; }
+    .big-num { font-size:56px; }
+  }
+
+  @media (max-width:460px){
+    .product-box{ height:auto; padding-bottom:80px; }
+    .product-box::before,.product-box::after{ display:none; } /* hide legs on very small screens */
+    .inner-card{ width:90%; }
+    .title{ font-size:24px; }
+    .big-num{ font-size:44px; }
+  }
+
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="product-box">
+      <h1 class="title">Highest &amp; <br />Average CTC</h1>
+
+      <div class="inner-card">
+        <h3>Expected Increase in<br/> Salary Potential</h3>
+        <div class="big-num">60%</div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
