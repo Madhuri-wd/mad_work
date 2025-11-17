@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Masai — Investors (exact order, no logos)</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --max-w:1100px;
+    --left-size:260px;   /* large portrait height */
+    --right-size:92px;   /* small portrait square */
+    --gutter:28px;
+    --row-space:18px;
+    --muted:#7d7d7d;
+    --divider:#ececec;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"Roboto", Arial, sans-serif;
+    color:#222;
+    background:#fff;
+  }
+
+  .wrap{
+    max-width:var(--max-w);
+    margin:20px auto;
+    padding:20px;
+  }
+
+  header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+  header h1{ margin:0; font-size:18px; font-weight:700; }
+
+  /* two-column grid */
+  .grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:var(--gutter);
+    align-items:start;
+  }
+
+  /* left column: stacked large portrait cards */
+  .left-column{
+    display:flex;
+    flex-direction:column;
+    gap:var(--row-space);
+  }
+  .big-card{
+    width:100%;
+    border-radius:8px;
+    overflow:hidden;
+    border:1px solid var(--divider);
+    background:#f8f8f8;
+  }
+  .big-card img{
+    width:100%;
+    height:var(--left-size);
+    object-fit:cover;
+    display:block;
+  }
+
+  /* right column: small portrait + name/role inline rows */
+  .right-column{
+    display:flex;
+    flex-direction:column;
+    gap:var(--row-space);
+  }
+  .small-row{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:6px 4px;
+    border-bottom:1px solid var(--divider);
+    min-height: calc(var(--right-size) + 6px);
+  }
+  .small-photo{
+    width:var(--right-size);
+    height:var(--right-size);
+    flex:0 0 var(--right-size);
+    overflow:hidden;
+    border-radius:6px;
+    background:#f3f3f3;
+  }
+  .small-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .person-text{ display:flex; flex-direction:column; justify-content:center; }
+  .person-name{ margin:0; font-weight:700; font-size:16px; line-height:1.05; }
+  .person-role{ margin:2px 0 0; color:var(--muted); font-size:13px; }
+
+  /* responsive: one column on narrow screens */
+  @media (max-width:980px){
+    .grid{ grid-template-columns: 1fr; }
+    :root{ --left-size:200px; --right-size:84px; }
+  }
+  @media (max-width:440px){
+    :root{ --left-size:150px; --right-size:72px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Masai — Investors</h1>
+      <div></div>
+    </header>
+
+    <main class="grid">
+      <!-- LEFT column (large portraits) -->
+      <div class="left-column" aria-label="left column">
+        <!-- 1) Vijay Shekhar Sharma (left-top) -->
+        <div class="big-card">
+          <img src="https://cdn.masaischool.com/masai-website/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg" alt="Vijay Shekhar Sharma large">
+        </div>
+
+        <!-- 3) Amrish Rau (placed as next left large according to provided order) -->
+        <div class="big-card">
+          <img src="https://cdn.masaischool.com/masai-website/amrish_rau_pine_labs_144e5e587c.jpg" alt="Amrish Rau large">
+        </div>
+
+        <!-- 5) Ankush Sachdeva -->
+        <div class="big-card">
+          <img src="https://cdn.masaischool.com/masai-website/Ankush_Sachdeva_Sharechat_4e44dbbe6b.jpg" alt="Ankush Sachdeva large">
+        </div>
+
+        <!-- 7) Bhanu / Farid or Farid depending on sequence (using Farid as 7th per your list) -->
+        <div class="big-card">
+          <img src="https://cdn.masaischool.com/masai-website/farid_ahsan_sharechat_1251f28141.png" alt="Farid Ahsan large">
+        </div>
+      </div>
+
+      <!-- RIGHT column (small portrait + name/role), placed in the same order you gave -->
+      <div class="right-column" aria-label="right column">
+        <!-- 2) Rectangle_427 (you provided this second) shown as small portrait top-right -->
+        <div class="small-row">
+          <div class="small-photo">
+            <img src="https://cdn.masaischool.com/masai-website/Rectangle_427_637d69bb57.png" alt="person small">
+          </div>
+          <div class="person-text">
+            <p class="person-name">Vijay Shekhar Sharma</p>
+            <p class="person-role">Founder &amp; CEO</p>
+          </div>
+        </div>
+
+        <!-- 4) Sampad Swain -->
+        <div class="small-row">
+          <div class="small-photo">
+            <img src="https://cdn.masaischool.com/masai-website/Sampad_swain_Instamojo_f12bf6341e.jpg" alt="Sampad Swain small">
+          </div>
+          <div class="person-text">
+            <p class="person-name">Sampad Swain</p>
+            <p class="person-role">Co-founder &amp; CEO, Instamojo</p>
+          </div>
+        </div>
+
+        <!-- 6) Bhanu Pratap Singh -->
+        <div class="small-row">
+          <div class="small-photo">
+            <img src="https://cdn.masaischool.com/masai-website/bhanu_pratap_singh_sharechat_11fdd7b47a.jpg" alt="Bhanu Pratap Singh small">
+          </div>
+          <div class="person-text">
+            <p class="person-name">Bhanu Pratap Singh</p>
+            <p class="person-role">Co-founder, ShareChat</p>
+          </div>
+        </div>
+
+        <!-- 8) Amit Kumar Agarwal (small, bottom-right) -->
+        <div class="small-row">
+          <div class="small-photo">
+            <img src="https://cdn.masaischool.com/masai-website/Amit_Kumar_Agarwal_Nobroker_a8a279ad91.jpg" alt="Amit Kumar Agarwal small">
+          </div>
+          <div class="person-text">
+            <p class="person-name">Amit Kumar Agarwal</p>
+            <p class="person-role">Co-founder, NoBroker</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
